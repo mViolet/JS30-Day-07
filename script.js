@@ -19,12 +19,15 @@ const comments = [
 // Array.prototype.some() // is at least one person 19 or older?
 // .some() returns one truthy and one falsy
 const currentYear = new Date().getFullYear();
+const checkAge = people.some(person => ((currentYear - person.year) >= 19) ? true : false);
 
 // Array.prototype.every() // is everyone 19 or older?
-const checkAge = people.some(person => ((currentYear - person.year) >= 19) ? true : false);
+const checkAgeEvery = people.every(person => ((currentYear - person.year) >= 19) ? true : false);
+
 console.table(people);
 console.table(comments);
-console.log(`All people above are 19 or over: ${checkAge}`);
+console.log(`Some person is 19 or over: ${checkAge}`);
+console.log(`Every person is 19 or over: ${checkAgeEvery}`);
 
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
